@@ -6,8 +6,9 @@ def index(request):
     if 'name' not in request.session:
         request.session['name']=''
         request.session['description']=''
-    courses = c.objects.all()
-
+        courses=[]
+    else:
+        courses = c.objects.all()
     context = { 'courses': courses}
     return render (request,'addcourse/index.html', context)
 
